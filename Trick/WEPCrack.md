@@ -13,6 +13,17 @@ WPA/WPA2 的破解其實仰賴於字典攻擊
 ![](../_src/WEPCrack.png)
 > 透過抓取IV完成破解
 
+
+# 原理
+![](../_src/WPA_Handshake.png)
+```
+1. 攻擊者傳送deauthentication(不需要任何權限)，打掉Client，在客戶端重新連接時得到4-Handshake內的資訊
+2. PTK = PMK + ANounce + SNounce + MAC1 + MAC2
+   PTK = Hash(ESSID + <PSK> + 4096)
+         + ANounce + SNounce + MAC1 + MAC2
+3. 所有資訊都可以從4-Handshake內得到，除了PSK也就是WiFi密碼，只要嘗試用字典檔去爆到MIC = HASH(PTK)相符合
+```
+
 # Recon
 ```bash
 # Monitor
