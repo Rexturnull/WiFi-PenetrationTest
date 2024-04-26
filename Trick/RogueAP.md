@@ -14,7 +14,7 @@ Rogue AP，也就是流氓(未經授權)接入點，aka 偷裝的基地台
 # Evil Twin
 ![](../_src/EvilTwin.png)
 
-# 架設假AP(WiFi)
+# Rogue AP - eaphammer
 Reset Enviroment
 ```bash
 ./restartWiFi.sh
@@ -38,3 +38,12 @@ python3 ./eaphammer -i wlan3 --auth wpa-eap --essid wifi-corp --creds --negotiat
 # 開啟GUI介面可以看到兩個幾乎一樣的wifi-corp AP
 # Evil Twin會更暴力一點把你直接踢下線，去連偽造的信號強度更強的AP
 ```
+
+# Rogue AP - WiFi-Pumpkin
+Install
+```bash
+git clone https://github.com/P0cL4bs/wifipumpkin3.git
+./installer.sh -install
+sudo wifi-pumpkin
+```
+
